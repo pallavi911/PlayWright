@@ -1,5 +1,6 @@
 // @ts-check
 import { defineConfig, devices } from '@playwright/test';
+import { on } from 'node:cluster';
 import { TIMEOUT } from 'node:dns';
 
 /**
@@ -33,11 +34,14 @@ export default defineConfig({
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     browserName: 'chromium',
+    // @ts-ignore
+    screenshot : on,
     /* Base URL to use in actions like `await page.goto('')`. */
     // baseURL: 'http://localhost:3000',
 actionTimeout: 0,
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'on-first-retry',
+      
+    trace: 'on',
   },
  
   /* Configure projects for major browsers */
@@ -45,6 +49,7 @@ actionTimeout: 0,
     {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
+    
     },
 
     // {
