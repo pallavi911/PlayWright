@@ -1,4 +1,5 @@
 const { test, expect } =  require('@playwright/test');
+const { loginPage } = require('../page object/loginPage.js');
 
 test.only('Client app login',async({browser})=>{
     const context = await browser.newContext();
@@ -6,10 +7,14 @@ test.only('Client app login',async({browser})=>{
     
     const products = page.locator('.card-body '); 
     const productName = "ZARA COAT 3"  
-    await page.goto('https://rahulshettyacademy.com/client');
-    await page.getByPlaceholder('email@example.com').fill('pallavi.aspirefox@gmail.com');
-    await page.getByPlaceholder("enter your passsword").fill('Pallavi@123');
-    await page.getByRole("button" , {name: 'Login'}).click();
+
+    const LoginPage = new loginPage(page);
+    LoginPage.goToPage();
+    LoginPage.validLogin('pallavi@yopmail.com', 'Pallavi@123');
+   //  await page.goto('https://rahulshettyacademy.com/client');
+   //  await page.getByPlaceholder('email@example.com').fill('pallavi.aspirefox@gmail.com');
+   //  await page.getByPlaceholder("enter your passsword").fill('Pallavi@123');
+   //  await page.getByRole("button" , {name: 'Login'}).click();
     
     await page.waitForLoadState('networkidle');
     await page.locator('.card-body b').first().waitFor();
