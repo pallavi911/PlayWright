@@ -1,15 +1,20 @@
 const { test, expect } =  require('@playwright/test');
+const { NewLoginPage } = require('../page object/NewLoginPage.js');
 
-test.only('Client app login',async({browser})=>{
+test('Client app login',async({browser})=>{
     const context = await browser.newContext();
     const page = await context.newPage();
     
     const products = page.locator('.card-body '); 
     const productName = "ZARA COAT 3"  
-    await page.goto('https://rahulshettyacademy.com/client');
-    await page.getByPlaceholder('email@example.com').fill('pallavi.aspirefox@gmail.com');
-    await page.getByPlaceholder("enter your passsword").fill('Pallavi@123');
-    await page.getByRole("button" , {name: 'Login'}).click();
+
+    const newLoginPage = new NewLoginPage(page);
+    newLoginPage.goToPage();
+    newLoginPage.validLogin('pallavi@yopmail.com', 'Pallavi@123');
+   //  await page.goto('https://rahulshettyacademy.com/client');
+   //  await page.getByPlaceholder('email@example.com').fill('pallavi.aspirefox@gmail.com');
+   //  await page.getByPlaceholder("enter your passsword").fill('Pallavi@123');
+   //  await page.getByRole("button" , {name: 'Login'}).click();
     
     await page.waitForLoadState('networkidle');
     await page.locator('.card-body b').first().waitFor();
@@ -47,6 +52,5 @@ test.only('Client app login',async({browser})=>{
    console.log(orderIdDetails);
    expect(orderId.includes(orderIdDetails)).toBeTruthy();
 
-   await page.pause();
-    // const documentLink = page.locator("[href*='documents-request']");
+
 });

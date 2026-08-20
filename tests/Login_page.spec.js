@@ -1,8 +1,7 @@
 const chromium = require('@playwright/test');
 const { test, expect } =  require('@playwright/test');
 
-// test.only run this test and ignore all other tests
-test.only('Login',async({browser})=>{
+test('Login',async({browser})=>{
     const context = await browser.newContext();
     const page = await context.newPage();
     const userName = page.locator('#username');

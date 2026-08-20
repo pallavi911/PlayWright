@@ -10,7 +10,7 @@ test('record 2 demo',async ({ page,context }) => {
   await page.locator('[data-test="username"]').press('Tab');
   await page.locator('[data-test="password"]').fill('secret_sauce');
   // await page.locator('[data-test="password"]').press('Enter');
-  await page.locator('[data-test="login-button1"]').click();
+await page.locator('[data-test="login-button"]').click();
   await page.locator('[data-test="item-4-title-link"]').click();
   await page.locator('[data-test="back-to-products"]').click();
   await page.getByRole('button', { name: 'Open Menu' }).click();
