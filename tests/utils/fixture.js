@@ -34,5 +34,4 @@ exports.customTest = base.test.extend(
             productName: "Adidas",
             country: "India",
         }
-
     })
