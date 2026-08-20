@@ -8,7 +8,7 @@ const { test, expect } = require('@playwright/test');
 test('Book ticket', async ({ browser }) => {
     const context = await browser.newContext();
     const page = await context.newPage();
-    const eventName = "event happy ${Date.now()";
+    const eventName = "event happy 1 ${Date.now()";
     const today = new Date();
     const formattedDate =
         `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()+1).padStart(2, '0')}T17:00`;
