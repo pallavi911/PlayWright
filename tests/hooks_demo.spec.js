@@ -6,8 +6,8 @@ let page;
  // hook that is executed once per worker process before all tests.
 test.beforeAll(async ({browser}) => {
   context = await browser.newContext();
-  await context.tracing.start({ screenshots: true, snapshots: true });
-    page = context.newPage();
+ 
+    page = await context.newPage();
 });
 
 // hook that is executed once per worker process after all tests.

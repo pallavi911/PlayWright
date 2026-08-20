@@ -16,7 +16,7 @@ import { TIMEOUT } from 'node:dns';
  */
 export default defineConfig({
   testDir: './tests', 
-  timeout: 10 * 1000,
+  timeout: 60000,
   expect:{
     timeout: 5000
   },
@@ -35,12 +35,11 @@ export default defineConfig({
   use: {
     browserName: 'chromium',
     // @ts-ignore
-    screenshot : on,
+    screenshot : 'only-on-failure',
     /* Base URL to use in actions like `await page.goto('')`. */
     // baseURL: 'http://localhost:3000',
 actionTimeout: 0,
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    slowMo: 5000,
     trace: 'on',
   },
  

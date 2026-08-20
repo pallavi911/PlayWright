@@ -1,11 +1,12 @@
 const { test, expect } =  require('@playwright/test');
 
-test('Client app login',async({browser})=>{
+test('Client app login 2',async({browser})=>{
     const context = await browser.newContext();
     const page = await context.newPage();
     
     const products = page.locator('.card-body '); 
     const productName = "ZARA COAT 3"  
+   
     await page.goto('https://rahulshettyacademy.com/client');
     await page.locator('#userEmail').fill('pallavi.aspirefox@gmail.com');
     await page.locator("#userPassword").fill('Pallavi@123');
@@ -65,6 +66,5 @@ test('Client app login',async({browser})=>{
    console.log(orderIdDetails);
    expect(orderId.includes(orderIdDetails)).toBeTruthy();
 
-   await page.pause();
     // const documentLink = page.locator("[href*='documents-request']");
 });

@@ -26,7 +26,7 @@ test('UI controls',async({browser})=>{
 
    await expect(documentLink).toHaveAttribute('class', 'blinkingText'); // toHaveAttribute check that blinkingtext class is present or not
    await signInButton.click();
-    await page.pause();
+ 
 });
 
 test('Handle Child window',async({browser})=>{
@@ -49,8 +49,7 @@ test('Handle Child window',async({browser})=>{
     const domain = arrayText[1].split(" ")[0];
 
     await page.locator('#username').type(domain);
-    
-    await page.pause();
+
 
 
 })

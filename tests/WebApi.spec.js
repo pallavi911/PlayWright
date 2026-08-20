@@ -44,7 +44,7 @@ test("API test", async ({ page }) => {
         }
     }
     const orderIdDetails = await page.locator(".col-text").textContent();
-    await page.pause();
+
     expect(response.orderId.includes(orderIdDetails)).toBeTruthy();
 
 });

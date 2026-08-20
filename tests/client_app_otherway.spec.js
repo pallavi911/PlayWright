@@ -52,6 +52,5 @@ test('Client app login',async({browser})=>{
    console.log(orderIdDetails);
    expect(orderId.includes(orderIdDetails)).toBeTruthy();
 
-   await page.pause();
-    // const documentLink = page.locator("[href*='documents-request']");
+
 });

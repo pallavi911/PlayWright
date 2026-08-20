@@ -7,7 +7,7 @@ test('Login',async({browser})=>{
     const userName = page.locator('#username');
     const signInButton = page.locator('#signInBtn');
     const cardTitles = page.locator('.card-body a');
-await page.pause();
+
     await page.goto('https://rahulshettyacademy.com/loginpagePractise/')
     await userName.fill('rahulshetty');
     await page.locator("[type='password']").fill('Learning@830$3mK2');
