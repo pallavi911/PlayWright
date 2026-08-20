@@ -1,6 +1,6 @@
 const { test, expect } =  require('@playwright/test');
 
-test.only('Client app login',async({browser})=>{
+test('Client app login',async({browser})=>{
     const context = await browser.newContext();
     const page = await context.newPage();
     

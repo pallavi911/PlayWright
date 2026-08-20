@@ -29,7 +29,7 @@ test('UI controls',async({browser})=>{
     await page.pause();
 });
 
-test.only('Handle Child window',async({browser})=>{
+test('Handle Child window',async({browser})=>{
     const context = await browser.newContext();
     const page = await context.newPage();
     const userName = page.locator('#username');
