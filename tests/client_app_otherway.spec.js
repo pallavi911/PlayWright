@@ -1,5 +1,5 @@
 const { test, expect } =  require('@playwright/test');
-const { loginPage } = require('../page object/loginPage.js');
+const { NewLoginPage } = require('../page object/NewLoginPage.js');
 
 test.only('Client app login',async({browser})=>{
     const context = await browser.newContext();
@@ -8,9 +8,9 @@ test.only('Client app login',async({browser})=>{
     const products = page.locator('.card-body '); 
     const productName = "ZARA COAT 3"  
 
-    const LoginPage = new loginPage(page);
-    LoginPage.goToPage();
-    LoginPage.validLogin('pallavi@yopmail.com', 'Pallavi@123');
+    const newLoginPage = new NewLoginPage(page);
+    newLoginPage.goToPage();
+    newLoginPage.validLogin('pallavi@yopmail.com', 'Pallavi@123');
    //  await page.goto('https://rahulshettyacademy.com/client');
    //  await page.getByPlaceholder('email@example.com').fill('pallavi.aspirefox@gmail.com');
    //  await page.getByPlaceholder("enter your passsword").fill('Pallavi@123');

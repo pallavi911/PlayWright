@@ -1,4 +1,4 @@
-const {LoginPage} = require('./LoginPage');
+const {NewLoginPage} = require('./NewLoginPage');
 const {DashboardPage} = require('./DashboardPage');
 const {OrdersHistoryPage} = require('./OrdersHistoryPage');
 const {OrdersReviewPage} = require('./OrdersReviewPage');
@@ -8,7 +8,7 @@ class POManager
 constructor(page)
 {
     this.page = page;
-    this.loginPage = new LoginPage(this.page);
+    this.loginPage = new NewLoginPage(this.page);
     this.dashboardPage = new DashboardPage(this.page);
     this.ordersHistoryPage = new OrdersHistoryPage(this.page);
     this.ordersReviewPage = new OrdersReviewPage(this.page);
